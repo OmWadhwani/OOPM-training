@@ -21,7 +21,7 @@ public:
         set_conf_data(newdata); // Use the setter method to modify data
     }
 
-    void view_modify_data() const {
+    void view_modify_data() const { // const means view data only
         display_conf_data(); // Use the getter method to view data
     }
 };
