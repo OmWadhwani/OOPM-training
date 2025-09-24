@@ -14,6 +14,7 @@ public:
     }
 };
 
+
 class Two
 {
     friend class One; // Class One is a friend of class Two
