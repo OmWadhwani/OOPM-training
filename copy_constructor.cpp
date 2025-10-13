@@ -1,34 +1,34 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 class Myclass {
-    int x; 
-    float y;
+    int age;
+    string name;
 
 public:
-    Myclass() {
-        x = 0; 
-        y = 2;
+    Myclass(int a , string s) {
+        age = a;
+        name  =s;
     }
 
     // Copy constructor
-    Myclass(const Myclass &other) {
-        x = other.x;
-        y = other.y;
+    Myclass(const Myclass &S){
+        age = S.age;
+        name = S.name;
     }
 
     void display() {
-        cout << "x:" << x << ", y:" << y << endl;
+        cout << "Age is:" << age<< ", name is:" << name << endl;
     }
 };
 
 int main() {
-    Myclass m1;
-    m1.display();
+Myclass obj1(21,"aJAY");
 
-    // Using the copy constructor to create a new object as a copy of m1
-    Myclass m2 = m1;
-    m2.display();
-
+Myclass obj2(obj1);
+Myclass obj3(obj1);
+obj3.display();
+Myclass obj4(obj1);
     return 0;
 }

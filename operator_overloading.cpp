@@ -1,40 +1,73 @@
 #include <iostream>
 using namespace std;
 
-class Complex {
-private:
+class Complex
+{
     float real;
-    float imaginary;
+    float imag;
 
 public:
-    // Constructor to initialize the complex number
-    Complex(float r = 0.0, float i = 0.0) : real(r), imaginary(i) {}
+    // Default constructor
+    Complex()
+    {
+        real = 0;
+        imag = 0;
+    }
 
-    // Overloading the + operator to add two complex numbers
-    Complex operator+(const Complex& other) const {
+    // Parameterized constructor
+    Complex(float r, float i)
+    {
+        real = r;
+        imag = i;
+    }
+
+    // Overload '+' operator
+    Complex operator+(const Complex &obj)
+    {
         Complex result;
-        result.real = real + other.real;
-        result.imaginary = imaginary + other.imaginary;
+        result.real = real + obj.real;
+        result.imag = imag + obj.imag;
         return result;
     }
 
-    // Display the complex number
-    void display() const {
-        cout << "Complex Number: " << real << " + " << imaginary << "i" << endl;
+    // Overload '-' operator
+    Complex operator-(const Complex &obj)
+    {
+        Complex result;
+        result.real = real - obj.real;
+        result.imag = imag - obj.imag;
+        return result;
+    }
+
+    // Display function
+    void display()
+    {
+        if (imag >= 0)
+            cout << real << " + " << imag << "i" << endl;
+        else
+            cout << real << " - " << -imag << "i" << endl;
     }
 };
 
-int main() {
-    // Creating two complex numbers
-    Complex c1(2.5, 3.0);
-    Complex c2(1.5, 2.0);
+int main()
+{
+    Complex c1(5.5, 3.2);
+    Complex c2(2.1, 1.3);
 
-    // Adding two complex numbers using operator overloading
-    Complex sum = c1 + c2;
+    Complex sum = c1 + c2;  // Using overloaded '+'
+    Complex diff = c1 - c2; // Using overloaded '-'
 
-    // Displaying the result
-    cout << "Result after addition: ";
+    cout << "First Complex Number: ";
+    c1.display();
+
+    cout << "Second Complex Number: ";
+    c2.display();
+
+    cout << "\nSum: ";
     sum.display();
+
+    cout << "Difference: ";
+    diff.display();
 
     return 0;
 }
