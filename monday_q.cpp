@@ -30,14 +30,13 @@ public:
     }
 };
 
-class Comparision: private Hero, private Villan{
+class Comparision: public Hero, public Villan{
 
     public:
     void power_comp(Hero &H, Villan &V){
         if(H.get_power()>V.get_power()){
             cout<<"Hero is stronger"<<endl;
             return;
-
         }
         cout<<"Villan is stronger"<<endl;
     }
@@ -46,7 +45,7 @@ class Comparision: private Hero, private Villan{
 int main(){
     Hero CA;
     Villan Skull;
-    CA.set_power(150);
+    CA.set_power(50);
     Skull.set_power(100);
     Comparision C;
     C.power_comp(CA, Skull);

@@ -1,2 +1,1 @@
- eat()
-    {
+H.get_power()
