@@ -12,13 +12,13 @@ public:
 
     void createAccount()
     {
-        cout << "Enter holder name: ";
+        cout << "Enter holder name: "<<endl;
         cin >> holderName;
-        cout << "Enter account number: ";
+        cout << "Enter account number: "<<endl;
         cin >> account_number;
-        cout << "Enter Aadhar number: ";
+        cout << "Enter Aadhar number: "<<endl;
         cin >> aadhar;
-        cout << "Enter initial amount (min Rs.1000): ";
+        cout << "Enter initial amount (min Rs.1000): "<<endl;
         cin >> amount;
 
         if (amount<1000)
@@ -60,6 +60,7 @@ public:
 class Employees : public Account
 {
     string empType;
+    int salary;
     int valid_aadhar[4] = {123, 456, 789, 1080};
 
 public:
@@ -77,7 +78,6 @@ public:
         }
     }
 
-private:
     bool doc_verify()
     {
         for (int i = 0; i < 4; i++)
@@ -87,14 +87,25 @@ private:
         }
         return false;
     }
+
+    
+    void set_salary(int x,string emp_type){
+    string emp;
+    cout<<"Whats your employ type"<<endl;
+    if(emp =="HR"){
+        salary = x;
+    }
+    else{
+        cout<<"Invalid access"<<endl;
+    }
+    }
 };
 
-// -------------------- Main Function --------------------
 int main()
 {
-    Employees emp;
-    emp.createAccount();
-    emp.emp_type();
-    emp.creditOrDebit();
+    Account A1;
+    Employees E1;
+    A1.createAccount();
+    E1.doc_verify();
     return 0;
 }
